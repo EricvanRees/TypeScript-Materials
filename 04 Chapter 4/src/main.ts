@@ -1,4 +1,10 @@
 // Type Aliases
+
+/* Type aliases in TypeScript offer a streamlined approach to defining custom names for existing types, thereby bolstering code clarity and maintainability. Type aliases are versatile, accommodating various types, including primitives, object types, union types, and function signatures.
+
+type aliases and interfaces cannot have default values, only for arrow functions as defined in the example code (line 75)
+*/
+  
 type stringOrNumber = string | number
 
 type stringOrNumberArray = (string | number)[]
