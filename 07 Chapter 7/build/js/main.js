@@ -53,7 +53,7 @@ const monthlyIncomes = {
     bonus: 100,
     sidehustle: 250
 };
-// you need to use keyof here even though the Record utility type was used when defining the different Streams types
+// you need to use an assertion (as keyof incomes) here even though the Record utility type was used when defining the different Streams types:
 for (const revenue in monthlyIncomes) {
     console.log(monthlyIncomes[revenue]);
 }

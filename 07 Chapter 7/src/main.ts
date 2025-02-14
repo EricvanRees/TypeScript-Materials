@@ -97,8 +97,9 @@ logStudentKey(student, 'GPA')
 
 /////////////////////////////////// 
 
+// the "Incomes" example with "Record<...>" is the equivalent of providing an index signature as "Incomes" right below using an index signature, but using a type.
+
 //interface Incomes {
-  // equivalent of line below:
   // [key: string]: number
 //}
 
@@ -109,6 +110,12 @@ type Streams = 'salary'| 'bonus' | 'sidehustle'
 
 // A Record in TypeScript is a generic utility type that constructs an object type with a specific set of keys of a given type, and where all the values are of another specified type. The Record type is defined as Record<K, T> , where K represents the type of the keys and T represents the type of the values.
 
+// uses utility type of record instead of an index signature:
+// this has a smaller syntax as index signature and allows for using string literals as the different types that are expected. 
+// You cannot do this, but with "Record" you can:
+// Interface Incomes {
+//  [key: 'salary']: number
+// }
 type Incomes = Record<Streams, number | string>
 
 const monthlyIncomes: Incomes = {
@@ -117,7 +124,7 @@ const monthlyIncomes: Incomes = {
   sidehustle: 250
 }
 
-// you need to use keyof here even though the Record utility type was used when defining the different Streams types
+// you need to use an assertion (as keyof incomes) here even though the Record utility type was used when defining the different Streams types:
 for (const revenue in monthlyIncomes) {
   console.log(monthlyIncomes[revenue as keyof Incomes]);
 }
