@@ -82,8 +82,8 @@ const checkBoolValue = <T>(arg: T): BoolCheck<T> => {
   return { value: arg, is: !!arg}
 } */
 
-console.log(checkBoolValue([1, 2, 3]));
-console.log(checkBoolValue([]));
+/* console.log(checkBoolValue([1, 2, 3]));
+console.log(checkBoolValue([])); */
 
 /////////////////////////////////////////////////////
 // another interface example
