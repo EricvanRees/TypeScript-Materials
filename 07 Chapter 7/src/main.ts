@@ -2,7 +2,7 @@
 
 /* From the TS documentation: A type in TypeScript usually describes an exact set of fields to match on an object. An index signature is a way to define the Shape of fields which are not known ahead of time.
 
-The keyof operator in TypeScript is used to derive new types from an existing object type's keys. It is a TypeScript construct commonly used as a building block in generating advaced types from a source object type. TypeScript keyof is a trivial type manipulation operator introduced in v 2.1 .
+The keyof operator in TypeScript is used to derive new types from an existing object type's keys. It is a TypeScript construct commonly used as a building block in generating advanced types from a source object type. TypeScript keyof is a trivial type manipulation operator introduced in v 2.1 .
 
 ****
 
