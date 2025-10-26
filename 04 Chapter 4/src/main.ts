@@ -2,6 +2,22 @@
 
 /* Type aliases in TypeScript offer a streamlined approach to defining custom names for existing types, thereby bolstering code clarity and maintainability. Type aliases are versatile, accommodating various types, including primitives, object types, union types, and function signatures.
 
+two type alias definitions:
+
+type stringOrNumber = string | number
+type stringOrNumberArray = (string | number)[]
+
+type aliases can be used inside a type:
+
+type Guitarist = {
+      name?: string,
+      active: boolean,
+      albums: stringOrNumberArray
+  }
+
+or:
+type UserId = stringOrNumber 
+
 type aliases and interfaces cannot have default values, only for arrow functions as defined in the example code (line 75)
 */
   
@@ -21,11 +37,10 @@ type Guitarist = {
 // while types are like aliases or any TS type you might assign
 type userId = stringOrNumber
 
-// Literal types
-
-// Literal types and aliases keep your keep DRY
+// Literal types = a literal assignment, type is now "Dave" and cannot be reassigned (similar to using a const)
+// Literal types and aliases keep your keep DRY, and to define them only once but use more often than once 
 let myName: 'Dave'
-
+// a more useful example of a literal assignment:
 let userName: 'Dave' | 'John' | 'Amy'
 userName = 'Amy'
 
@@ -40,7 +55,7 @@ const add = (a: number, b: number): number => {
 const logMsg = (message: any): void => {
   console.log(message)
 }
-
+// this works fine:
 logMsg('Hello')
 logMsg(add(2, 3))
 
@@ -97,7 +112,7 @@ const calcTotal = (a: number, ...nums: number[]): number => {
 logMsg(total(1, 2, 3, 4)) // logs 10
 logMsg(calcTotal(1, 2, 3, 4))
 
-// The never type represents the type of values that never occur. For instance, never is the return type for a function expression or an arrow function expression that always throws an exception or one that never returns. Variables also acquire the type never when narrowed by any type guards that can never be true.
+// The never type represents the type of values that never occur. For instance, "never" is the return type for a function expression or an arrow function expression that always throws an exception or one that never returns. Variables also acquire the type never when narrowed by any type guards that can never be true.
 
 const createError = (errMsg: string): never => {
   throw new Error(errMsg);
