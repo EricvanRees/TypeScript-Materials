@@ -36,6 +36,8 @@ class Coder {
        public readonly name: string, 
        public music: string, 
        private age: number, 
+       // optional with a default value, 
+       // protected means it can also be accessed in subclasses, unlike private properties:
        protected lang: string = 'Typescript'
      ) {
        this.name = name
@@ -56,6 +58,7 @@ class Coder {
    //console.log(Dave.age)
    //console.log(Dave.lang)
 
+   // subclass example:
    class WebDev extends Coder {
     constructor(
       public computer: string,
@@ -106,11 +109,12 @@ class Guitarist implements Musician {
 const Page = new Guitarist('Jimmy', 'guitar')
 console.log(Page.play('strums'));
 ///////////////////////////////////////// 
+// class with static member and method
 
 class Peeps {
-  // the count value applies directly to the class, not to individual objects that are instantiated
+  // the count value applies directly to the class itself, not to individual objects that are instantiated with the class
   static count: number = 0
-
+  // return Peeps.count does not use "this", but is used on the class itself:
   static getCount(): number {
     return Peeps.count
   }
@@ -119,6 +123,7 @@ class Peeps {
 
   constructor(public name: string) {
     this.name = name
+    // ++ sets the first instantiation of the class to 1
     this.id = ++Peeps.count
   }
 }
@@ -130,7 +135,7 @@ const Amy = new Peeps('Amy')
 console.log(Peeps.count); // returns 3
 //////////////////////////////////////// 
 
-// getters and setters
+// getters and setters (see React useState() hook)
 // "get" and "set" are special keywords in JS
 
 class Bands {
@@ -152,13 +157,14 @@ class Bands {
   }
 }
 
+// examples instantiating the class above:
 const MyBands = new Bands()
 MyBands.data = ['Neil Young', 'Led Zep']
 // use the getter:
 console.log(MyBands.data);
-// use the setter:
+// use the setter 
 MyBands.data = [...MyBands.data, 'ZZ Top']
-console.log(MyBands.data);
+console.log(MyBands.data); // logs ['Neil Young', 'Led Zep']
 // throws an error: MyBands.data = ['Van Halen', 5150]
 // because 5150 is not a string
 
